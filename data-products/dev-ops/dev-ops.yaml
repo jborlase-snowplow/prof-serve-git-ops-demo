@@ -6,6 +6,7 @@ resourceName: 7dd23898-056f-4dfa-beaa-b01925ba0b5b
 data:
     name: Dev Ops
     owner: james.borlase@snowplowanalytics.com
+    domain: dev_ops
     description: Data product for Dev Ops operations tracking including user login events and form interactions
     sourceApplications:
         - $ref: ./source-apps/dev-ops-app.yaml
