@@ -16,13 +16,14 @@ data:
     vendor: com.jb.gitops.example.dev_ops
     name: user
     format: jsonschema
-    version: 1-0-0
+    version: 1-0-1
   type: object
   properties: 
     user_id:
       type: string
       description: "A unique identifier for the user"
       maxLength: 255
+      minLength: 1
   required:
     - user_id
   additionalProperties: false
