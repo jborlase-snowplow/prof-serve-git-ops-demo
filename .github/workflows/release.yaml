@@ -84,4 +84,4 @@ jobs:
         run: snowplow-cli ds pub ${{ env.SNP_ENV }} ./data-structures --managed-from ${{ github.repositoryUrl}}
 
       - name: publish data products
-        run: snowplow-cli dp pub ${{ env.SNP_ENV }} ./data-products --managed-from ${{ github.repositoryUrl}}
+        run: snowplow-cli dp publish ./data-products --managed-from ${{ github.repositoryUrl}}
