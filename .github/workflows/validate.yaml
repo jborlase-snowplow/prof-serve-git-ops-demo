@@ -26,6 +26,7 @@ jobs:
         run: |
           # Check data structure vendors
           echo "Checking data structure vendors..."
+          echo ${{ env.VENDOR }}
           for file in $(find data-structures -name "*.yaml" -o -name "*.yml"); do
             echo "Checking file: $file"
             vendor=$(grep -A 10 "self:" "$file" | grep "vendor:" | sed 's/.*vendor: *//' | tr -d ' ')
