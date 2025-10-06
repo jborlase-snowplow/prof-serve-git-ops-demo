@@ -6,12 +6,10 @@ resourceName: 93f1b910-1f91-4ca1-95e8-af976651ddd3
 data:
     name: Dev Ops App
     description: A development operations application
-    owner: 
+    owner: james.borlase@snowplowanalytics.com 
     appIds:
         - dev_ops_app
         - dev_ops_app_mobile
     entities:
-        tracked:
-            - source: iglu:com.example.dev_ops/user/jsonschema/1-0-0
-              minCardinality: 1
+        tracked: []
         enriched: []

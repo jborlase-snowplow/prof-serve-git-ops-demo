@@ -26,20 +26,22 @@ data:
       description: Name of the product
       maxLength: 256
       minLength: 1
-      type: string
+      type: ["string", "null"]
     category:
       description: Category of the product
       maxLength: 256
       minLength: 1
-      type: string
+      type: ["string", "null"]
     price:
       description: Price of the product
-      type: number
+      type: ["number", "null"]
+      minimum: 0
+      maximum: 999999.99
     currency:
       description: Currency of the product
       maxLength: 3
       minLength: 3
-      type: string
+      type: ["string", "null"]
   required:
       - id
   additionalProperties: false

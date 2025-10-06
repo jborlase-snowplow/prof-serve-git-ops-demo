@@ -2,16 +2,14 @@
 
 apiVersion: v1
 resourceType: source-application
-resourceName: 93f1b910-1f91-4ca1-95e8-af976651ddd3
+resourceName: ee1f79ab-5c25-47d1-acce-6d4db69ab221
 data:
     name: ML Ops App
     description: A machine learning operations application
-    owner: 
+    owner: james.borlase@snowplowanalytics.com 
     appIds:
         - ml_ops_app
         - ml_ops_app_mobile
     entities:
-        tracked:
-            - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
-              minCardinality: 1
+        tracked: []
         enriched: []
