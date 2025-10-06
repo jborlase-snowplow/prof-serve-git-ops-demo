@@ -26,13 +26,14 @@ jobs:
         run: |
           # Check data structure vendors
           echo "Checking data structure vendors..."
-          echo ${{ env.VENDOR }}
+          echo "Allowed vendor: ${{ vars.VENDOR }}"
+          echo "Allowed domain: ${{ vars.DOMAIN }}"
           for file in $(find data-structures -name "*.yaml" -o -name "*.yml"); do
             echo "Checking file: $file"
             vendor=$(grep -A 10 "self:" "$file" | grep "vendor:" | sed 's/.*vendor: *//' | tr -d ' ')
-            if [ ! -z "$vendor" ] && [ "$vendor" != "${{ env.VENDOR }}" ]; then
+            if [ ! -z "$vendor" ] && [ "$vendor" != "${{ vars.VENDOR }}" ]; then
               echo "❌ ERROR: Data structure in $file has vendor '$vendor'"
-              echo "   Only vendor '${{ env.VENDOR }}' is allowed for this repository"
+              echo "   Only vendor '${{ vars.VENDOR }}' is allowed for this repository"
               exit 1
             fi
             if [ ! -z "$vendor" ]; then
@@ -45,16 +46,16 @@ jobs:
           for file in $(find data-products -name "*.yaml" -o -name "*.yml" | grep -v "source-apps"); do
             echo "Checking file: $file"
             domain=$(grep "domain:" "$file" | sed 's/.*domain: *//' | tr -d ' ')
-            if [ ! -z "$domain" ] && [ "$domain" != "${{ env.DOMAIN }}" ]; then
+            if [ ! -z "$domain" ] && [ "$domain" != "${{ vars.DOMAIN }}" ]; then
               echo "❌ ERROR: Data product in $file has domain '$domain'"
-              echo "   Only domain '${{ env.DOMAIN }}' is allowed for this repository"
+              echo "   Only domain '${{ vars.DOMAIN }}' is allowed for this repository"
               exit 1
             fi
             if [ ! -z "$domain" ]; then
               echo "✅ Valid domain: $domain in $file"
             else
               echo "⚠️  WARNING: Data product in $file has no domain specified"
-              echo "   Please add 'domain: dev_ops' to the data section"
+              echo "   Please add 'domain: ${{ vars.DOMAIN }}' to the data section"
               exit 1
             fi
           done
