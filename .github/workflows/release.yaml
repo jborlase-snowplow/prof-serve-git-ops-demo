@@ -79,7 +79,7 @@ jobs:
         run: snowplow-cli dp validate data-products --gh-annotate
 
       - name: publish data structures
-        run: snowplow-cli ds pub ${{ env.SNP_ENV }} ./data-structures
+        run: snowplow-cli ds pub ${{ env.SNP_ENV }} ./data-structures --managed-from ${{ github.repositoryUrl}}
 
       - name: publish data products
-        run: snowplow-cli dp pub ${{ env.SNP_ENV }} ./data-products
+        run: snowplow-cli dp pub ${{ env.SNP_ENV }} ./data-products --managed-from ${{ github.repositoryUrl}}
