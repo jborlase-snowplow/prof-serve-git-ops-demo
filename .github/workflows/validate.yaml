@@ -29,7 +29,7 @@ jobs:
           for file in $(find data-structures -name "*.yaml" -o -name "*.yml"); do
             echo "Checking file: $file"
             vendor=$(grep -A 10 "self:" "$file" | grep "vendor:" | sed 's/.*vendor: *//' | tr -d ' ')
-            if [ ! -z "$vendor" ] && [ "$vendor" != ${{ env.VENDOR }} ]; then
+            if [ ! -z "$vendor" ] && [ "$vendor" != "${{ env.VENDOR }}" ]; then
               echo "❌ ERROR: Data structure in $file has vendor '$vendor'"
               echo "   Only vendor '${{ env.VENDOR }}' is allowed for this repository"
               exit 1
@@ -44,7 +44,7 @@ jobs:
           for file in $(find data-products -name "*.yaml" -o -name "*.yml" | grep -v "source-apps"); do
             echo "Checking file: $file"
             domain=$(grep "domain:" "$file" | sed 's/.*domain: *//' | tr -d ' ')
-            if [ ! -z "$domain" ] && [ "$domain" != ${{ env.DOMAIN }} ]; then
+            if [ ! -z "$domain" ] && [ "$domain" != "${{ env.DOMAIN }}" ]; then
               echo "❌ ERROR: Data product in $file has domain '$domain'"
               echo "   Only domain '${{ env.DOMAIN }}' is allowed for this repository"
               exit 1
