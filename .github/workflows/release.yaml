@@ -36,16 +36,14 @@ jobs:
 
       - name: Validate domain restrictions
         run: |
-          echo "🔍 Validating domain restrictions..."
-          
           # Check data structure vendors
           echo "Checking data structure vendors..."
           for file in $(find data-structures -name "*.yaml" -o -name "*.yml"); do
             echo "Checking file: $file"
             vendor=$(grep -A 10 "self:" "$file" | grep "vendor:" | sed 's/.*vendor: *//' | tr -d ' ')
-            if [ ! -z "$vendor" ] && [ "$vendor" != "com.jb.gitops.example.dev_ops" ]; then
+            if [ ! -z "$vendor" ] && [ "$vendor" != ${{ secrets.VENDOR }} ]; then
               echo "❌ ERROR: Data structure in $file has vendor '$vendor'"
-              echo "   Only vendor 'com.jb.gitops.example.dev_ops' is allowed for this repository"
+              echo "   Only vendor '${{ secrets.VENDOR }}' is allowed for this repository"
               exit 1
             fi
             if [ ! -z "$vendor" ]; then
@@ -58,9 +56,9 @@ jobs:
           for file in $(find data-products -name "*.yaml" -o -name "*.yml" | grep -v "source-apps"); do
             echo "Checking file: $file"
             domain=$(grep "domain:" "$file" | sed 's/.*domain: *//' | tr -d ' ')
-            if [ ! -z "$domain" ] && [ "$domain" != "dev_ops" ]; then
+            if [ ! -z "$domain" ] && [ "$domain" != ${{ secrets.DOMAIN }} ]; then
               echo "❌ ERROR: Data product in $file has domain '$domain'"
-              echo "   Only domain 'dev_ops' is allowed for this repository"
+              echo "   Only domain '${{ secrets.DOMAIN }}' is allowed for this repository"
               exit 1
             fi
             if [ ! -z "$domain" ]; then
