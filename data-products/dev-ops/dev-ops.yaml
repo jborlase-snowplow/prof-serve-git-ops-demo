@@ -20,7 +20,7 @@ data:
                   - source: iglu:com.jb.gitops.example.dev_ops/user/jsonschema/1-0-0
                     minCardinality: 1
                     maxCardinality: 1
-                  - source: iglu:com.snplow.sales.gcp.git/login/jsonschema/1-0-1
+                  - source: iglu:com.snplow.sales.gcp.git/login/jsonschema/1-0-0
                     minCardinality: 1
                     maxCardinality: 1
               enriched: []
