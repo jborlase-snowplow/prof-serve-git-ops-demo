@@ -13,7 +13,7 @@ data:
   $schema: http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#
   description: "A user entity"
   self:
-    vendor: com.example.ml_ops
+    vendor: com.jb.gitops.example.ml_ops
     name: user
     format: jsonschema
     version: 1-0-0

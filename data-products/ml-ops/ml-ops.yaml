@@ -17,7 +17,7 @@ data:
               source: iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0
           entities:
               tracked:
-                  - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
+                  - source: iglu:com.jb.gitops.example.ml_ops/user/jsonschema/1-0-0
                     minCardinality: 1
                     maxCardinality: 1
                   - source: iglu:com.snplow.sales.gcp.git/product/jsonschema/1-0-0
@@ -37,7 +37,7 @@ data:
               source: iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0
           entities:
               tracked:
-                  - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
+                  - source: iglu:com.jb.gitops.example.ml_ops/user/jsonschema/1-0-0
                     minCardinality: 1
                     maxCardinality: 1
                   - source: iglu:com.snplow.sales.gcp.git/subscription/jsonschema/1-0-0
@@ -57,7 +57,7 @@ data:
               source: iglu:com.snowplowanalytics.snowplow/page_view/jsonschema/1-0-0
           entities:
               tracked:
-                  - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
+                  - source: iglu:com.jb.gitops.example.ml_ops/user/jsonschema/1-0-0
                     minCardinality: 1
                     maxCardinality: 1
               enriched: []
