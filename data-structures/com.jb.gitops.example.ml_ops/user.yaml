@@ -23,6 +23,7 @@ data:
       type: string
       description: "A unique identifier for the user"
       maxLength: 255
+      minLength: 1
   required:
     - user_id
   additionalProperties: false
