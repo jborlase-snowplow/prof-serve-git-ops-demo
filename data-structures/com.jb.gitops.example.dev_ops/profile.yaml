@@ -16,7 +16,7 @@ data:
     vendor: com.jb.gitops.example.dev_ops
     name: profile
     format: jsonschema
-    version: 2-0-0
+    version: 3-0-0
   type: object
   properties: 
     profile_id:
@@ -29,7 +29,13 @@ data:
       description: "The name of the user"
       maxLength: 255
       minLength: 1
+    profile_service:
+      type: string
+      description: "The service the user belongs to"
+      maxLength: 255
+      minLength: 1
   required:
     - profile_id
     - profile_name
+    - profile_service
   additionalProperties: false
